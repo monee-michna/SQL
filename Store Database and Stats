@@ -1,0 +1,30 @@
+--Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, price INTEGER, sold INTEGER);
+
+INSERT INTO store VALUES (1, "shirts", 5, 5.00, 1);
+INSERT INTO store VALUES (2, "shorts", 10, 7.00, 9);
+INSERT INTO store VALUES (3, "pants", 10, 10.00, 6);
+INSERT INTO store VALUES (4, "shoes", 15, 15.00, 10);
+INSERT INTO store VALUES (5, "caps", 9, 8.00, 4);
+INSERT INTO store VALUES (6, "necklace", 12, 6.00, 10);
+SELECT * FROM store;
+
+--display the database ordered by price.
+SELECT * FROM store 
+ORDER BY price;
+
+--display how many total items have been sold
+SELECT SUM(sold) FROM store;
+
+--display item with most sold
+SELECT item, MAX(sold) FROM store;
+
+--display item with least sold
+SELECT item, MIN(sold) FROM store;
+
+--what are the top 3 selling items?
+SELECT item, price, sold
+FROM store
+order by sold desc
+limit 3; 
